@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-
+	<link rel="stylesheet" href="stylesheets/mycss.css" type="text/css" />
   </head>
   <style type="text/css">
   .body{
@@ -19,8 +19,8 @@
     height: 50px;
     top: 50%;
     left: 50%;
-    margin-left: -250px;
-    margin-top: -150px;
+    margin-left: -400px;
+    margin-top: -180px;
     text-align: center;
   }
   .main-image img{
@@ -35,7 +35,12 @@
     position: absolute;
     width: 150px;
     height: 150px;
+    font-size: 22px;
     clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+transition:width 2s, height 2s;
+-moz-transition:width 2s, height 2s, -moz-transform 2s; /* Firefox 4 */
+-webkit-transition:width 2s, height 2s, -webkit-transform 2s; /* Safari and Chrome */
+-o-transition:width 2s, height 2s, -o-transform 2s; /* Opera */
     
   }
   .first{
@@ -69,13 +74,13 @@
   .seventh{
     background-color:#a054ca;
     left: 8px;
-    top: 415px;
+    top: 521px;
   }
   .test a{
     font-family: 华文行楷;
     position: absolute;
     top: 42%;
-    left: 39%;
+    left: 37%;
     text-decoration:none;
     color: #4e3535;
   }
@@ -87,16 +92,19 @@
   }
   .libai{
     position: absolute;
-    top: -266%;
-    left: 500%;
+    top: -126%;
+    left: 600%;
   }
   .main-image p{
-    width: 569px;
+    width: 509px;
     margin: 0 0 0 0;
     text-align: left;
     font-size: 17px;
   }
 
+
+
+ 
   </style>
   <script type="text/javascript"></script>
   <body class="body">
@@ -131,19 +139,19 @@
      <a href="page/js.html" class="second">JS</a>
   </div>
   <div class="test third">
-     <a href="page/frame.html">框架</a>
+     <a href="page/frame.html">Frame</a>
   </div>
   <div class="test fourth">
-     <a href="page/essay.html">随笔</a>
+     <a href="page/essay.html">Essay</a>
   </div>
   <div class="test fifth">
-     <a href="page/other.html">待续</a>
+     <a href="page/other.html">...</a>
   </div>
   <div class="test sixth">
-     <a href="">...</a>
+     <a href="">Resume</a>
   </div>
   <div class="test seventh">
-     <a href="">...</a>
+     <a href="">About</a>
   </div>
 
 </div>
