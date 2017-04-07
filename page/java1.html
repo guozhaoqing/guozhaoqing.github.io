@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./blogcommon.css">
+  </head>
+  <style type="text/css">
+    body{
+      margin: 0px;  
+      background-color: #d8d8d3;
+    }
+    .head{
+      min-height:300px;
+      height: 30%;
+      width: 100%;
+      background-color: #299982;
+    }
+    .headimg{
+      min-height:300px;
+      height: 30%;
+      width: 100%;
+      background:url(aaaa.jpg) repeat center center scroll;  
+      opacity: 0.3;  
+    }
+    .header{
+      position: absolute;
+      background:url(aaaa.jpg) repeat center center scroll;  
+      width:180px;
+      height:180px;
+      border-radius:180px;
+      left: 50%;
+      margin-left: -90px;
+      top: 60px;
+    }
+    .tex{
+      width: 442px;
+      top: 260px;
+      color: white;
+      font-family: 宋体;
+      font-size: 24px;
+      background: url();
+      margin-left: -221px; 
+    }
+    .line{
+      height: 29px;
+      width: 100%;
+      background-color: #211f1f;
+    }
+    .body{
+      width: 80%;
+      min-height:1629px;
+      text-align: center;
+    }
+    .left{
+      background-color: white;
+      position: absolute;
+      margin-top: 12px;
+      left: 6%;
+      min-height:1600px;
+      height: 70%;
+      width: 15%;
+      border: 1px white solid; 
+    }
+    .myheader{
+      position: absolute;
+      background:url(logo.jpg) repeat center center scroll;  
+      width:100px;
+      height:100px;
+      border-radius:100px;
+      left: 50%;
+      margin-left: -50px;
+      top: 60px;
+    }
+    .info{
+      position: absolute;
+      top: 200px;
+      height: 200px;
+      width: 100%;
+      background-color: #299982;
+      color: white;
+      font-family: 宋体;
+      font-size: 18px;
+    }
+    .atag{
+      position: absolute;
+      top: 400px;
+      width: 100%;
+      text-align: center;
+     
+    }
+    .atag a{
+       color: #299982;
+    }
+    .right{
+      background-color: white;
+      position: absolute;
+      margin-top: 12px;  
+      left: 23%;
+      min-height:1600px;
+      height: 70%;
+      width: 71%;
+    }
+    .maintext{
+      width: 80%;
+      height: 100%;
+      position: absolute;
+      left: 10%;
+      top: 10%;
+      text-align: left;
+    }
+    .foot{
+      min-height:100px;
+      width: 100%;
+      background-color: #727475;
+    }
+    p a{
+      font-size: 11px;
+    }
+  </style>
+  <script type="text/javascript"></script>
+  <body>
+    <div class="head">
+        <!-- <img class="headimg" src="aaaa.jpg"> -->
+        <div class="headimg">
+        </div>
+    </div>
+    <div class="header"></div>
+    <div class="header tex">薛定谔的猫，哲学家的狗，单身的小朋友</div>
+    <div class="line"></div>
+    <div class="body">
+      <div class="left">
+        <div class="myheader"></div>
+          <div class="info"> 
+          <p>&nbsp;</p>
+            <p>&nbsp;&nbsp;世界上有10种人，</p>
+            <p>&nbsp;一种懂二进制，</p>
+            <p>&nbsp;一种不懂二进制 </p>
+          </div>
+          <div class="atag">
+            <p><a href="#">&lt;--</a></p>
+            <p><a href="#">自定义注解入门(2017年4月)</a></p>
+
+          </div>
+      </div>
+      <div class="right">
+          <div class="maintext">
+            <p>实例：</p>
+
+          <div class="cnblogs_code">
+<pre>
+@Target(ElementType.METHOD)<span style="color: #008000;">// 这是一个对方法的注解，还可以是包、类、变量等很多东西</span>
+@Retention(RetentionPolicy.RUNTIME)<span style="color: #008000;">// 保留时间，一般注解就是为了框架开发时代替配置文件使用，JVM运行时用反射取参数处理，所以一般都为RUNTIME类型</span>
+@Documented<span style="color: #008000;">// 用于描述其它类型的annotation应该被作为被标注的程序成员的公共API，因此可以被例如javadoc此类的工具文档化</span>  
+<span style="color: #0000ff;">public</span> @<span style="color: #0000ff;">interface</span><span style="color: #000000;"> OneAnnotation {</span><span style="color: #008000;">// 定义注解的参数，类型可以为基本类型以及String、Class、enum、数组等，default为默认值</span>  
+    String parameter1() default "";  
+    int parameter2() default -1;  
+} 
+</pre>
+          </div>
+<p>使用注解的类： </p>
+          <div class="cnblogs_code">
+<pre> 
+public class OneClass {
+    <span style="color: #000fff;">@OneAnnotation(parameter1="YES", parameter2=10000)</span>
+    public void oneMethod () {  
+    }  
+}
+</pre>
+          </div>
+<p>获取注解的值： </p>
+          <div class="cnblogs_code">
+<pre>
+public class TestThis {    
+    public static void main(String[] args) throws Exception {  
+        <span style="color: #008000;">// 提取到被注解的方法Method，这里用到了反射的知识 </span>
+        Method method = Class.forName("OneClass").getDeclaredMethod("oneMethod");  
+
+        <span style="color: #008000;">// 从Method方法中通过方法getAnnotation获得我们设置的注解 </span> 
+        OneAnnotation oneAnnotation = method.getAnnotation(OneAnnotation.class);  
+          
+        <span style="color: #008000;">// 得到注解的俩参数  </span>
+        System.out.println(oneAnnotation.parameter1());  
+        System.out.println(oneAnnotation.parameter2());  
+    }  
+} 
+</pre>
+          </div> 
+<pre>
+    新建一个@interface对象，即可获得一个自定义注解对象。
+    对该对象添加属性对象，则获得具体的注解内部属性。(可给定默认值)
+例：String XXX() default "aaaa";
+    boolean xxx() default true;
+    Integer xxx() default 1;
+
+    通过给自定义注解对象添加元注解，用来对自定义注解对象进行说明。
+包括：
+    <span style="color: red;">1.@Target</span>
+        @Target说明了Annotation所修饰的对象范围：Annotation可被用于 packages、types（类、接口、枚举、Annotation类型）、类型成员（方法、构造方法、成员变量、枚举值）、方法参数和本地变量（如循环变量、catch参数）。在Annotation类型的声明中使用了target可更加明晰其修饰的目标。
+    <span style="color: #008000;">作用：用于描述注解的使用范围（即：被描述的注解可以用在什么地方）</span>
+    取值<span style="color: #0000ff;">（ElementType）</span>有：
+        1.<span style="color: #000fff;">CONSTRUCTOR</span>:用于描述构造器
+　　　　2.<span style="color: #000fff;">FIELD</span>:用于描述域
+　　　　3.<span style="color: #000fff;">LOCAL_VARIABLE</span>:用于描述局部变量
+　　　　4.<span style="color: #000fff;">METHOD</span>:用于描述方法
+　　　　5.<span style="color: #000fff;">PACKAGE</span>:用于描述包
+　　　　6.<span style="color: #000fff;">PARAMETER</span>:用于描述参数
+　　　　7.<span style="color: #000fff;">TYPE</span>:用于描述类、接口(包括注解类型) 或enum声明
+
+　　<span style="color: red;">2.@Retention</span>
+        @Retention定义了该Annotation被保留的时间长短：某些Annotation仅出现在源代码中，而被编译器丢弃；而另一些却被编译在class文件中；编译在class文件中的Annotation可能会被虚拟机忽略，而另一些在class被装载时将被读取（请注意并不影响class的执行，因为Annotation与class在使用上是被分离的）。使用这个meta-Annotation可以对 Annotation的“生命周期”限制。
+    <span style="color: #008000;">作用：表示需要在什么级别保存该注释信息，用于描述注解的生命周期（即：被描述的注解在什么范围内有效）</span>
+    取值<span style="color: #0000ff;">（RetentionPoicy）</span>有：
+        1.<span style="color: #000fff;">SOURCE</span>:在源文件中有效（即源文件保留）
+　　　　2.<span style="color: #000fff;">CLASS</span>:在class文件中有效（即class保留）
+　　　　3.<span style="color: #000fff;">RUNTIME</span>:在运行时有效（即运行时保留）
+　　<span style="color: red;">3.@Documented</span>
+        @Documented用于描述其它类型的annotation应该被作为被标注的程序成员的公共API，因此可以被例如javadoc此类的工具文档化。Documented是一个标记注解，没有成员。
+　　<span style="color: red;">4.@Inherited</span>
+        @Inherited 元注解是一个标记注解，@Inherited阐述了某个被标注的类型是被继承的。如果一个使用了@Inherited修饰的annotation类型被用于一个class，则这个annotation将被用于该class的子类。
+
+        注意：@Inherited annotation类型是被标注过的class的子类所继承。类并不从它所实现的接口继承annotation，方法并不从它所重载的方法继承annotation。
+
+        当@Inherited annotation类型标注的annotation的Retention是RetentionPolicy.RUNTIME，则反射API增强了这种继承性。如果我们使用java.lang.reflect去查询一个@Inherited annotation类型的annotation时，反射代码检查将展开工作：检查class和其父类，直到发现指定的annotation类型被发现，或者到达类继承结构的顶层。
+</pre>
+
+
+
+
+          </div>
+      </div>
+    </div>
+    <div class="line"></div>
+    <div class="foot"></div>
+  </body>
+</html>
+
