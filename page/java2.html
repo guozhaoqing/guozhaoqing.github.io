@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./blogcommon.css">
+  </head>
+  <style type="text/css">
+    body{
+      margin: 0px;  
+      background-color: #d8d8d3;
+    }
+    .head{
+      min-height:300px;
+      height: 30%;
+      width: 100%;
+      background-color: #299982;
+    }
+    .headimg{
+      min-height:300px;
+      height: 30%;
+      width: 100%;
+      background:url(aaaa.jpg) repeat center center scroll;  
+      opacity: 0.3;  
+    }
+    .header{
+      position: absolute;
+      background:url(aaaa.jpg) repeat center center scroll;  
+      width:180px;
+      height:180px;
+      border-radius:180px;
+      left: 50%;
+      margin-left: -90px;
+      top: 60px;
+    }
+    .tex{
+      width: 442px;
+      top: 260px;
+      color: white;
+      font-family: 宋体;
+      font-size: 24px;
+      background: url();
+      margin-left: -221px; 
+    }
+    .line{
+      height: 29px;
+      width: 100%;
+      background-color: #211f1f;
+    }
+    .body{
+      width: 80%;
+      min-height:1629px;
+      text-align: center;
+    }
+    .left{
+      background-color: white;
+      position: absolute;
+      margin-top: 12px;
+      left: 6%;
+      min-height:1600px;
+      height: 70%;
+      width: 15%;
+      border: 1px white solid; 
+    }
+    .myheader{
+      position: absolute;
+      background:url(logo.jpg) repeat center center scroll;  
+      width:100px;
+      height:100px;
+      border-radius:100px;
+      left: 50%;
+      margin-left: -50px;
+      top: 60px;
+    }
+    .info{
+      position: absolute;
+      top: 200px;
+      height: 200px;
+      width: 100%;
+      background-color: #299982;
+      color: white;
+      font-family: 宋体;
+      font-size: 18px;
+    }
+    .atag{
+      position: absolute;
+      top: 400px;
+      width: 100%;
+      text-align: center;
+     
+    }
+    .atag a{
+       color: #299982;
+    }
+    .right{
+      background-color: white;
+      position: absolute;
+      margin-top: 12px;  
+      left: 23%;
+      min-height:1600px;
+      height: 70%;
+      width: 71%;
+    }
+    .maintext{
+      width: 80%;
+      height: 100%;
+      position: absolute;
+      left: 10%;
+      top: 10%;
+      text-align: left;
+    }
+    .foot{
+      min-height:100px;
+      width: 100%;
+      background-color: #727475;
+    }
+    p a{
+      font-size: 11px;
+    }
+  </style>
+  <script type="text/javascript"></script>
+  <body>
+    <div class="head">
+        <!-- <img class="headimg" src="aaaa.jpg"> -->
+        <div class="headimg">
+        </div>
+    </div>
+    <div class="header"></div>
+    <div class="header tex">薛定谔的猫，哲学家的狗，单身的小朋友</div>
+    <div class="line"></div>
+    <div class="body">
+      <div class="left">
+        <div class="myheader"></div>
+          <div class="info"> 
+          <p>&nbsp;</p>
+            <p>&nbsp;&nbsp;世界上有10种人，</p>
+            <p>&nbsp;一种懂二进制，</p>
+            <p>&nbsp;一种不懂二进制 </p>
+          </div>
+          <div class="atag">
+            <p><a href="#">&lt;--</a></p>
+            <p><a href="java1.html">自定义注解入门(2017年4月)</a></p>
+            <p><a href="#">java数组(2017年4月)</a></p>
+            <p><a href="java3.html">java集合详解(2017年4月)</a></p>
+
+          </div>
+      </div>
+      <div class="right">
+          <div class="maintext">
+<pre>
+&nbsp;&nbsp;简单了解一下数组的相关内容，在JAVA中，数组是集合的基础。但是在API中，并没有数组的相关文档。只有java.util.Arrays，但它明显不是数组的API文档。
+使用如下测试代码去查询数组的类：
+</pre>
+          <div class="cnblogs_code">
+<pre>
+public class Main {   
+  public static void main(String args[]){   
+    int a[] = new int[10]; 
+    Class clazz = a.getClass();   
+    System.out.println(clazz.getName());   
+  }   
+}
+</pre>
+</div>
+<pre>
+输出结果为<span style="color: #008000;"> [I</span>
+&nbsp;&nbsp;说明数组类的类名为<span style="color: #008000;"> [I</span>这明显不符合JAVA类的命名规范，<span style="color: #008000;">[ </span>也是java中的非法标识符。
+通过如下代码测试一下数组类的成员变量、成员方法等：
+</pre>
+          <div class="cnblogs_code">
+<pre>
+public class Main {   
+  public static void main(String[] args) {   
+    int a[] = new int[10]; 
+    Class clazz = a.getClass();   
+    System.out.println(clazz.getDeclaredFields().length);<span style="color: #008000;"> //属性</span>
+    System.out.println(clazz.getDeclaredMethods().length);<span style="color: #008000;"> //方法</span>   
+    <span style="color: #008000;"> //构造方法</span>  
+    System.out.println(clazz.getDeclaredConstructors().length);
+    <span style="color: #008000;"> //注释</span> 
+    System.out.println(clazz.getDeclaredAnnotations().length);
+    <span style="color: #008000;"> //Class对象</span>  
+    System.out.println(clazz.getDeclaredClasses().length);
+    System.out.println(clazz.getSuperclass());<span style="color: #008000;"> //父类</span>
+  }   
+} 
+</pre>
+</div>
+<pre>
+显示结果为：
+</pre>
+          <div class="cnblogs_code">
+<pre>
+0 
+0 
+0 
+0 
+0 
+class java.lang.Object  
+</pre>
+</div>
+<pre>
+&nbsp;&nbsp;从测试结果来看，数组类的父类是Object类，但是它没有成员变量和成员方法、构造方法等，连注释都没有。但是我们在使用数组的时候，却明确的可以使用<span style="color: red;">.length</span>属性来获取到数组的长度！
+&nbsp;&nbsp;这里并没有实力去看JVM的源代码，查阅网上相关资料内容如下：数组类应该是JVM虚拟机自己创建了[I类，在《JAVA虚拟机规范》(The JavaTM Virtual Machine Specification  Second Edition)中对其进行了严谨的规范。简单概括：
+&nbsp;&nbsp;类加载器先看看数组类是否已经被创建了。如果没有，那就说明需要创建数组类；如果有，那就无需创建了。
+&nbsp;&nbsp;如果数组元素是引用类型，那么类加载器首先去加载数组元素的类。
+&nbsp;&nbsp;JVM根据元素类型和维度，创建相应的数组类。
+
+&nbsp;&nbsp;通过字节码文件查看创建过程：
+</pre>
+          <div class="cnblogs_code">
+<pre>
+public class Main {   
+public static void main(String[] args)   
+{ int a[] = new int[2]; int i = a.length;   
+}   
+}
+</pre>
+</div>
+          <div class="cnblogs_code">
+<pre>
+0 iconst_2                   <span style="color: #008000;">//将int型常量2压入操作数栈</span>  
+1 newarray 10 (int)    <span style="color: #008000;">//将2弹出操作数栈，作为长度，创建一个元素类型为int, 维度为1的数组，并将数组的引用压入操作数栈  </span>
+3 astore_1                 <span style="color: #008000;">//将数组的引用从操作数栈中弹出，保存在索引为1的局部变量(即a)中  </span>
+4 aload_1                  <span style="color: #008000;">//将索引为1的局部变量(即a)压入操作数栈  </span>
+5 arraylength            <span style="color: #008000;">//从操作数栈弹出数组引用(即a)，并获取其长度(JVM负责实现如何获取)，并将长度压入操作数栈  </span>
+6 istore_2                 <span style="color: #008000;">//将数组长度从操作数栈弹出，保存在索引为2的局部变量(即i)中  </span>
+7 return                    <span style="color: #008000;">//main方法返回  </span>
+</pre>
+</div>
+<pre>
+&nbsp;&nbsp;这里涉及到虚拟机的相关指令，就不再赘述！
+
+
+数组的定义:
+元素类型[] 数组名 = new 元素类型[元素个数或数组长度];
+例：int[] arr = new int[5]; 
+使用[]来标识数组类<span style="color: blue;">(不晓得这里[]和数组类的类名[I是不是一个巧合)
+</span>
+ new 用来在内存中开辟空间。
+  5 在这里用于指定在堆内存中开辟空间的大小。
+
+二维数组：实质就是存储的是一维数组。
+数组定义：
+数组类型[][] 数组名 = new 数组类型[一维数组的个数][每一个一维数组中元素的个数];
+例：int[][] arr = new int[5][6]; 
+arr指向一个长度为5的一维数组，一维数组的每个元素保存一个新的长度为6的一维数组的内存地址。
+
+<span style="color: red;">数组的维度最大为255</span>
+
+JAVA在util中提供了java.util.Arrays类对数组进行操作。
+Arrays类直接继承Object类，专门用于操作数组，主要提供排序，搜索方法。此类还包含一个允许将数组作为列表来查看的静态工厂。
+主要关注一下指定比较器的sort方法即可，其余参考API。
+<span style="color: blue;">public static &lt;T&gt; void sort(T[] a, Comparator&lt;? super T&gt; c)</span> 
+
+
+</pre>
+
+
+
+        </div>
+      </div>
+    </div>
+    <div class="line"></div>
+    <div class="foot"></div>
+  </body>
+</html>
+
