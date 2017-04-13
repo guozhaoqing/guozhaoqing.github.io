@@ -7,3 +7,6 @@
 	-webkit-transform:rotate(180deg); /* Safari and Chrome */
 	-o-transform:rotate(180deg); /* Opera */
 }
+pre{
+	line-height:18px;
+}
