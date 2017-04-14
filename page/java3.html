@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./blogcommon.css">
+    <link rel="stylesheet" type="text/css" href="./mycss.css">
+  </head>
+  <style type="text/css">
+    body{
+      margin: 0px;  
+      background-color: #d8d8d3;
+    }
+    .head{
+      min-height:300px;
+      height: 30%;
+      width: 100%;
+      background-color: #299982;
+    }
+    .headimg{
+      min-height:300px;
+      height: 30%;
+      width: 100%;
+      background:url(aaaa.jpg) repeat center center scroll;  
+      opacity: 0.3;  
+    }
+    .header{
+      position: absolute;
+      background:url(aaaa.jpg) repeat center center scroll;  
+      width:180px;
+      height:180px;
+      border-radius:180px;
+      left: 50%;
+      margin-left: -90px;
+      top: 60px;
+    }
+    .tex{
+      width: 442px;
+      top: 260px;
+      color: white;
+      font-family: 宋体;
+      font-size: 24px;
+      background: url();
+      margin-left: -221px; 
+    }
+    .line{
+      height: 29px;
+      width: 100%;
+      background-color: #211f1f;
+    }
+    .body{
+      width: 80%;
+      min-height:4529px;
+      text-align: center;
+    }
+    .left{
+      background-color: white;
+      position: absolute;
+      margin-top: 12px;
+      left: 6%;
+      min-height:4500px;
+      height: 70%;
+      width: 15%;
+      border: 1px white solid; 
+    }
+    .myheader{
+      position: absolute;
+      background:url(logo.jpg) repeat center center scroll;  
+      width:100px;
+      height:100px;
+      border-radius:100px;
+      left: 50%;
+      margin-left: -50px;
+      top: 60px;
+    }
+    .info{
+      position: absolute;
+      top: 200px;
+      height: 200px;
+      width: 100%;
+      background-color: #299982;
+      color: white;
+      font-family: 宋体;
+      font-size: 18px;
+    }
+    .atag{
+      position: absolute;
+      top: 400px;
+      width: 100%;
+      text-align: center;
+     
+    }
+    .atag a{
+       color: #299982;
+    }
+    .right{
+      background-color: white;
+      position: absolute;
+      margin-top: 12px;  
+      left: 23%;
+      min-height:4500px;
+      height: 70%;
+      width: 71%;
+    }
+    .maintext{
+      width: 80%;
+      height: 100%;
+      position: absolute;
+      left: 10%;
+      top: 10%;
+      text-align: left;
+    }
+    .foot{
+      min-height:100px;
+      width: 100%;
+      background-color: #727475;
+    }
+    p a{
+      font-size: 11px;
+    }
+  </style>
+  <script type="text/javascript"></script>
+  <body>
+    <div class="head">
+        <!-- <img class="headimg" src="aaaa.jpg"> -->
+        <div class="headimg">
+        </div>
+    </div>
+    <div class="header"></div>
+    <div class="header tex">薛定谔的猫，哲学家的狗，单身的小朋友</div>
+    <div class="line"></div>
+    <div class="body">
+      <div class="left">
+        <div class="myheader"></div>
+          <div class="info"> 
+          <p>&nbsp;</p>
+            <p>&nbsp;&nbsp;世界上有10种人，</p>
+            <p>&nbsp;一种懂二进制，</p>
+            <p>&nbsp;一种不懂二进制 </p>
+          </div>
+          <div class="atag">
+            <p><a href="../index.html">返回</a></p>
+            <p><a href="java1.html">自定义注解入门(2017年4月)</a></p>
+            <p><a href="java2.html">java数组(2017年4月)</a></p>
+            <p><a href="#">java集合详解1(2017年4月)</a></p>
+            <p><a href="java4.html">java集合详解2(2017年4月)</a></p>
+            <p><a href="java5.html">java集合详解3(2017年4月)</a></p>
+
+          </div>
+      </div>
+      <div class="right">
+          <div class="maintext" style="top:100px;">
+<pre>
+关于JAVA的集合，首先了解下集合的类图：
+</pre>
+<div><img style="width: 100%;" src="collection.jpg"></div>
+<pre>
+这里把集合Collection和Map放在一起了，但是Collection都实现Iterable接口，用于迭代器迭代，而Map则是键值对的形式。
+主要常用的实现类如下：
+Collection:
+    <span style="color: #069;">Vector</span>
+    <span style="color: #069;">ArrayList</span>
+    <span style="color: #069;">LinkedList</span>
+    <span style="color: #069;">TreeSet</span>
+    <span style="color: #069;">HashSet</span>
+Map：
+    <span style="color: #069;">TreeMap</span>
+    <span style="color: #069;">HashMap</span>
+
+1、Vector
+<span style="color: #9393d4;">public class Vector&lt;E&gt; extends AbstractList&lt;E&gt; implements List&lt;E&gt;, RandomAccess, Cloneable, java.io.Serializable</span>
+Vector是线程安全的集合，主要原因是因为它的add()方法上加了Synchronized。这是它与arraylist的一个主要区别。默认数组长度为10。
+          <div class="cnblogs_code"><pre>
+public synchronized boolean add(E e) {<span style="color: #008000;">//synchronized线程安全</span>
+  modCount++;
+  ensureCapacityHelper(elementCount + 1);
+  elementData[elementCount++] = e;
+        return true;
+}
+private void ensureCapacityHelper(int minCapacity) {
+  int oldCapacity = elementData.length;
+  if (minCapacity > oldCapacity) {<span style="color: #008000;">//对原长度进行判断</span>
+      Object[] oldData = elementData;
+      int newCapacity = (capacityIncrement > 0) ?
+    (oldCapacity + capacityIncrement) : (oldCapacity * 2);<span style="color: #008000;">//若增长系数不为0，则增长一个增长系数，否则原长度X2</span>
+      if (newCapacity < minCapacity) {
+        newCapacity = minCapacity;
+      }
+      elementData = Arrays.copyOf(elementData, newCapacity);
+  }
+}</pre></div>
+Vector的实现基于它的内部3个属性：
+<span style="color: #069;">Obeject[] elementData</span> 用于存放放入该集合的具体元素。
+<span style="color: #069;">int elementCount</span>      元素个数，每次add时都会增长。
+<span style="color: #069;">int capacityIncrement</span> 容器增长系数，默认为0。每次add元素的时候，都会对添加后的长度进行判断，若添加元素后的长度大于原来的长度，则对增长系数进行判断，若增长系数&lt;=0，则原长度X2，否则长度增长一个增长系数。
+
+Vector正常情况下使用较少，因为它线程安全，需要更大的系统开销，所以除非必须考虑线程安全相关，否则不建议使用。
+
+2、ArrayList
+<span style="color: #9393d4;">public class ArrayList&lt;E&gt; extends AbstractList&lt;E&gt; implements List&lt;E&gt;, RandomAccess, Cloneable, java.io.Serializable</span>
+ArrayList实现原理与Vector基本一致，初始长度为10，无增长系数，每次add元素的时候，会对内部数组进行长度判断，若长度不够，则将原来的长度X1.5+1。
+ArrayList并非线程安全的，所以访问效率要比Vector高。
+<span style="color: #069;">Obeject[] elementData</span> 用于存放放入该集合的具体元素。
+<span style="color: #069;">int size</span>      集合长度，每次add时都会增长。
+<div class="cnblogs_code"><pre>
+public boolean add(E e) {
+  ensureCapacity(size + 1);  <span style="color: #008000;">// Increments modCount!!</span>
+  elementData[size++] = e;
+  return true;
+}
+public void ensureCapacity(int minCapacity) {
+  modCount++;
+  int oldCapacity = elementData.length;
+  if (minCapacity > oldCapacity) {
+      Object oldData[] = elementData;
+      int newCapacity = (oldCapacity * 3)/2 + 1;<span style="color: #008000;">//若原长度足够则不做处理，若不够，则X1.5+1</span>
+      if (newCapacity < minCapacity)
+          newCapacity = minCapacity;
+            <span style="color: #008000;">// minCapacity is usually close to size, so this is a win:</span>
+      elementData = Arrays.copyOf(elementData, newCapacity);
+  }
+}
+</pre></div>
+但是对于Vector和ArrayList而言，存放数据的都是Object[]，所以在插入或删除指定元素的时候，都需要对Object[]进行复制、移动，代价较大。所以适合遍历和随机查找。
+此处以ArrayList的add(int index, E element)为例：
+<div class="cnblogs_code"><pre>
+public void add(int index, E element) {
+  if (index > size || index < 0)
+      throw new IndexOutOfBoundsException(
+    "Index: "+index+", Size: "+size);
+
+  ensureCapacity(size+1);  <span style="color: #008000;">// Increments modCount!!</span>
+  System.arraycopy(elementData, index, elementData, index + 1,
+       size - index);<span style="color: #008000;">//这里需要对原数组进行复制和移动，来保证插入位置的数据全部后移，腾出一个位置给新的元素。</span>
+  elementData[index] = element;
+  size++;
+}</pre></div>
+删除操作以及Vector的插入指定位置元素和删除指定位置元素和这里的操作基本一致，也就不再赘述。
+
+3、LinkedList
+<span style="color: #9393d4;">public class LinkedList&lt;E&gt; extends AbstractSequentialList&lt;E&gt; implements List&lt;E&gt;, Deque&lt;E&gt;, Cloneable, java.io.Serializable</span>
+针对与list中的Vector和ArrayList在指定位置的查询和删除功能上效率较低的问题，JAVA提供了一个新的集合类LinkedList，它使用的是双向链表式。
+首先看一下它的参数：
+<span style="color: #069;">Entry&lt;E&gt; header = new Entry&lt;E&gt;(null, null, null);</span>
+<span style="color: #069;">int size = 0;</span>
+这里的size表示LinkedList的大小,header表示链表的表头，而表头是LinkedList内部定义的一个内部类Entry，作为节点对象。
+Entry的定义如下：
+<div class="cnblogs_code"><pre>
+private static class Entry&lt;E&gt; {
+  E element;          <span style="color: #008000;">//元素节点</span>
+  Entry&lt;E&gt; next;<span style="color: #008000;">//下一个元素对象</span>
+  Entry&lt;E&gt; previous;<span style="color: #008000;">//上一个元素</span>
+
+  Entry(E element, Entry&lt;E&gt; next, Entry&lt;E&gt; previous) {
+      this.element = element;
+      this.next = next;
+      this.previous = previous;
+  }
+}</pre></div>
+那LinkedList是如何通过entry对象来实现双向链表结构的呢，这里通过add(E e)方法的源码来具体分析：
+<div class="cnblogs_code"><pre>
+public boolean add(E e) {
+  addBefore(e, header);
+        return true;
+}
+private Entry&lt;E&gt; addBefore(E e, Entry&lt;E&gt; entry) {
+  <span style="color: #008000;">//新建一个Entry实体对象，在构造方法中将header指定为它的next成员变量，header的previous对象指定为自己的previous成员变量</span>
+  Entry&lt;E&gt; newEntry = new Entry&lt;E&gt;(e, entry, entry.previous);
+  <span style="color: #008000;">//让自己的前一个对象的next指向自己</span>
+  newEntry.previous.next = newEntry;
+  <span style="color: #008000;">//让header的previous指向自己</span>
+  newEntry.next.previous = newEntry;
+  size++;
+  modCount++;
+  return newEntry;
+}</pre></div>
+值里光从代码还是比较难看的出它的具体实现过程的，通过下面的两幅流程图可以更清晰的看出第一次add(E e)和第二次add(E e)的具体实现过程。
+第一次add:
+<img style="width:100%" src="2222.jpg">
+
+第二次add:
+<img style="width:100%" src="1111.jpg">
+
+理解了LinkedList的双向链表结构，那么它的删除操作已经其他的添加操作也就不难理解了，至于查询操作，无非也就是迭代，也不再赘述。
+</pre>
+
+
+
+
+
+
+          </div>
+      </div>
+    </div>
+    <div class="line"></div>
+    <div class="foot"></div>
+  </body>
+</html>
+
