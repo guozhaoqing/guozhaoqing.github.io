@@ -8,5 +8,6 @@
 	-o-transform:rotate(180deg); /* Opera */
 }
 pre{
-	line-height:18px;
+	font-size:20px;
+	line-height:24px;
 }
