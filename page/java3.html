@@ -240,7 +240,7 @@ public void add(int index, E element) {
 
 3、LinkedList
 <span style="color: #9393d4;">public class LinkedList&lt;E&gt; extends AbstractSequentialList&lt;E&gt; implements List&lt;E&gt;, Deque&lt;E&gt;, Cloneable, java.io.Serializable</span>
-针对与list中的Vector和ArrayList在指定位置的查询和删除功能上效率较低的问题，JAVA提供了一个新的集合类LinkedList，它使用的是双向链表式。
+针对与list中的Vector和ArrayList在指定位置的插入和删除功能上效率较低的问题，JAVA提供了一个新的集合类LinkedList，它使用的是双向链表式。
 首先看一下它的参数：
 <span style="color: #069;">Entry&lt;E&gt; header = new Entry&lt;E&gt;(null, null, null);</span>
 <span style="color: #069;">int size = 0;</span>
@@ -283,6 +283,7 @@ private Entry&lt;E&gt; addBefore(E e, Entry&lt;E&gt; entry) {
 <img style="width:100%" src="1111.jpg">
 
 理解了LinkedList的双向链表结构，那么它的删除操作已经其他的添加操作也就不难理解了，至于查询操作，无非也就是迭代，也不再赘述。
+END
 </pre>
 
 
