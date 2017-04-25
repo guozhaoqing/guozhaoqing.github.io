@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./blogcommon.css">
+    <link rel="stylesheet" type="text/css" href="./mycss.css">
+  </head>
+  <style type="text/css">
+    body{
+      margin: 0px;  
+      background-color: #d8d8d3;
+    }
+    .head{
+      min-height:300px;
+      height: 30%;
+      width: 100%;
+      background-color: #299982;
+    }
+    .headimg{
+      min-height:300px;
+      height: 30%;
+      width: 100%;
+      background:url(aaaa.jpg) repeat center center scroll;  
+      opacity: 0.3;  
+    }
+    .header{
+      position: absolute;
+      background:url(aaaa.jpg) repeat center center scroll;  
+      width:180px;
+      height:180px;
+      border-radius:180px;
+      left: 50%;
+      margin-left: -90px;
+      top: 60px;
+    }
+    .tex{
+      width: 442px;
+      top: 260px;
+      color: white;
+      font-family: 宋体;
+      font-size: 24px;
+      background: url();
+      margin-left: -221px; 
+    }
+    .line{
+      height: 29px;
+      width: 100%;
+      background-color: #211f1f;
+    }
+    .body{
+      width: 80%;
+      min-height:2829px;
+      text-align: center;
+    }
+    .left{
+      background-color: white;
+      position: absolute;
+      margin-top: 12px;
+      left: 6%;
+      min-height:2800px;
+      height: 70%;
+      width: 15%;
+      border: 1px white solid; 
+    }
+    .myheader{
+      position: absolute;
+      background:url(logo.jpg) repeat center center scroll;  
+      width:100px;
+      height:100px;
+      border-radius:100px;
+      left: 50%;
+      margin-left: -50px;
+      top: 60px;
+    }
+    .info{
+      position: absolute;
+      top: 200px;
+      height: 200px;
+      width: 100%;
+      background-color: #299982;
+      color: white;
+      font-family: 宋体;
+      font-size: 18px;
+    }
+    .atag{
+      position: absolute;
+      top: 400px;
+      width: 100%;
+      text-align: center;
+     
+    }
+    .atag a{
+       color: #299982;
+    }
+    .right{
+      background-color: white;
+      position: absolute;
+      margin-top: 12px;  
+      left: 23%;
+      min-height:2800px;
+      height: 70%;
+      width: 71%;
+    }
+    .maintext{
+      width: 80%;
+      height: 100%;
+      position: absolute;
+      left: 10%;
+      top: 10%;
+      text-align: left;
+    }
+    .foot{
+      min-height:100px;
+      width: 100%;
+      background-color: #727475;
+    }
+    p a{
+      font-size: 11px;
+    }
+  </style>
+  <script type="text/javascript"></script>
+  <body>
+    <div class="head">
+        <!-- <img class="headimg" src="aaaa.jpg"> -->
+        <div class="headimg">
+        </div>
+    </div>
+    <div class="header"></div>
+    <div class="header tex">薛定谔的猫，哲学家的狗，单身的小朋友</div>
+    <div class="line"></div>
+    <div class="body">
+      <div class="left">
+        <div class="myheader"></div>
+          <div class="info"> 
+          <p>&nbsp;</p>
+            <p>&nbsp;&nbsp;世界上有10种人，</p>
+            <p>&nbsp;一种懂二进制，</p>
+            <p>&nbsp;一种不懂二进制 </p>
+          </div>
+          <div class="atag">
+            <p><a href="../index.html">返回</a></p>
+            <p><a href="#">mongodb入门(2017年4月)</a></p>
+            <p><a href="mongodb1.html">mongodb详解1(2017年4月)</a></p>
+
+          </div>
+      </div>
+      <div class="right">
+          <div class="maintext" style="top:100px;">
+<pre>
+&nbsp;&nbsp;在java开发中，比较常用的关系型数据库有mysql和oracle，但是随着项目要求的不断改变，nosql数据库也渐渐开始流行，尤其是在web项目上。
+nosql数据库在使用的时候有一下一些优点：
+&nbsp;&nbsp;<span style="color: #9393d4;">1、不需要预定义模式：</span>不需要事先定义数据模式，预定义表结构。数据中的每条记录都可能有不同的属性和格式。当插入数据时，并不需要预先定义它们的模式。
+&nbsp;&nbsp;<span style="color: #9393d4;">2、无共享架构：</span>相对于将所有数据存储的存储区域网络中的全共享架构。NoSQL往往将数据划分后存储在各个本地服务器上。因为从本地磁盘读取数据的性能往往好于通过网络传输读取数据的性能，从而提高了系统的性能。
+&nbsp;&nbsp;<span style="color: #9393d4;">3、弹性可扩展：</span>可以在系统运行的时候，动态增加或者删除结点。不需要停机维护，数据可以自动迁移。
+&nbsp;&nbsp;<span style="color: #9393d4;">4、分区：</span>相对于将数据存放于同一个节点，NoSQL数据库需要将数据进行分区，将记录分散在多个节点上面。并且通常分区的同时还要做复制。这样既提高了并行性能，又能保证没有单点失效的问题。
+&nbsp;&nbsp;<span style="color: #9393d4;">5、异步复制：</span>和RAID存储系统不同的是，NoSQL中的复制，往往是基于日志的异步复制。这样，数据就可以尽快地写入一个节点，而不会被网络传输引起迟延。缺点是并不总是能保证一致性，这样的方式在出现故障的时候，可能会丢失少量的数据。
+&nbsp;&nbsp;<span style="color: #9393d4;">6、BASE：</span>相对于事务严格的ACID特性，NoSQL数据库保证的是BASE特性。BASE是最终一致性和软事务。
+
+NoSQL数据库在以下的这几种情况下比较适用：
+    1、数据模型比较简单；
+    2、需要灵活性更强的IT系统；
+    3、对数据库性能要求较高；
+    4、不需要高度的数据一致性；
+    5、对于给定key，比较容易映射复杂值的环境。
+
+而这里要介绍的Mongodb属于NoSQL数据库中的文档型数据库。
+
+&lt;一&gt;安装
+&nbsp;&nbsp;我这里使用的windows系统，在https://www.mongodb.com/download-center#community官网下载对应版本的安装包，Linux、OS的也有。目前windows的支持已经去掉的32位系统的安装包，只支持64位了（大赞，再也不用担心下错版本GG了！）。推荐下载msi格式的简单方便，指定一下安装路径即可，zip的解压包我在解压后出现了目录错误的问题，未能解决，待解救。
+&nbsp;&nbsp;在解压完成后，在相邻目录新建data目录，并在data目录下新建db目录。因为MongoDB会将数据保存在db目录下，而这个目录并不会自动去创建，需要手动创建。我这里将MongoDB安装在D：盘下，同时在D:盘下新建了D://data 和D://data\db 目录。
+创建完数据保存目录后，就可以启动MongoDB了，在MongoDB的bin目录下执行命令行:
+<div class="cnblogs_code"><pre>mongod.exe --dbpath d:\data\db </pre></div>
+若出现如下提示，则说明服务已正常启动。
+<div class="cnblogs_code"><pre>2017-04-25T15:54:09.212+0800 I CONTROL  Hotfix KB2731284 or later update is not installed, will zero-out data files
+2017-04-25T15:54:09.229+0800 I JOURNAL  [initandlisten] journal dir=c:\data\db\journal
+2017-04-25T15:54:09.237+0800 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2017-04-25T15:54:09.290+0800 I JOURNAL  [durability] Durability thread started
+2017-04-25T15:54:09.294+0800 I CONTROL  [initandlisten] MongoDB starting : pid=2488 port=27017 dbpath=d:\data\db 64-bit host=WIN-1VONBJOCE88
+2017-04-25T15:54:09.296+0800 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2017-04-252T15:54:09.298+0800 I CONTROL  [initandlisten] db version v3.0.6
+……</pre></div>
+这里可能会出现无法执行的问题，可以点击bin目录下的mongod.exe执行文件，根据报错信息安装Microsoft Visual C++等依赖。
+为了避免每次开机后都要手动去开启服务的问题，可以通过命令行将mongodb的服务加入到windows服务中去。命令行如下：
+<div class="cnblogs_code"><pre>mongod.exe --bind_ip yourIPadress --logpath "D:\data\dbConf\mongodb.log" --logappend --dbpath "D:\data\db" --port yourPortNumber --serviceName "YourServiceName" --serviceDisplayName "YourServiceName" --install</pre></div>
+    logpath 是指定MongoDB日志文件，注意是指定文件不是目录，需要手动去创建这个文件
+    dbpath  是指定数据库路径
+    yourPortNumber 是指定端口号，默认端口27017
+    YourServiceName 是指定服务名称
+
+到这里安装的操作就结束了，接下来使用就可以直接运行bin目录下的mongo.exe文件
+出现如下内容则说明正常运行：
+<div class="cnblogs_code"><pre>
+MongoDB shell version v3.4.0-rc3
+connecting to: mongodb://127.0.0.1:27017
+MongoDB server version: 3.4.0-rc3
+Server has startup warnings:
+2017-04-25T08:57:49.778+0800 I CONTROL  [initandlisten]
+2017-04-25T08:57:49.778+0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2017-04-25T08:57:49.778+0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2017-04-25T08:57:49.778+0800 I CONTROL  [initandlisten]
+2017-04-25T08:57:49.778+0800 I CONTROL  [initandlisten] Hotfix KB2731284 or later update is not installed, will zero-out data files.
+2017-04-25T08:57:49.778+0800 I CONTROL  [initandlisten]
+></pre></div>
+由于它是一个JavaScript shell，您可以运行一些简单的算术运算:
+<div class="cnblogs_code"><pre>
+> 2 + 2
+4
+></pre></div>
+db 命令用于查看当前操作的文档（数据库）：
+<div class="cnblogs_code"><pre>
+> db
+test
+></pre></div>
+插入一些简单的记录并查找它：
+<div class="cnblogs_code"><pre>
+> db.testnum.insert({x:10})
+WriteResult({ "nInserted" : 1 })
+> db.testnum.find()
+{ "_id" : ObjectId("5604ff74a274a611b0c990aa"), "x" : 10 }
+></pre></div>
+</pre>
+
+
+          </div>
+      </div>
+    </div>
+    <div class="line"></div>
+    <div class="foot"></div>
+  </body>
+</html>
