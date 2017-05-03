@@ -7,11 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-	<link rel="stylesheet" href="../page/mycss.css" type="text/css" />
+	<link rel="stylesheet" href="mycss.css" type="text/css" />
   </head>
   <style type="text/css">
   .body{
-    background-color: rgba(224, 218, 226, 0.96);
+  	/*background: url(sss.jpg);
+  	background-size:100%;*/
+    /*background-color: rgba(224, 218, 226, 0.96);*/
+    background-color: #2f2c2c;
   }
   .main-image{
     position: absolute;
@@ -30,6 +33,7 @@
     font-family: 华文行楷;
     font-size: 23px;
     color: #736060;
+    text-shadow: 5px 5px 4px #4a3207;
   }
   .test{
     position: absolute;
@@ -37,17 +41,25 @@
     height: 150px;
     font-size: 22px;
     clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-transition:width 2s, height 2s;
--moz-transition:width 2s, height 2s, -moz-transform 2s; /* Firefox 4 */
--webkit-transition:width 2s, height 2s, -webkit-transform 2s; /* Safari and Chrome */
--o-transition:width 2s, height 2s, -o-transform 2s; /* Opera */
-    
+    transition:width 2s, height 2s;
+    -moz-transition:width 2s, height 2s, -moz-transform 2s; /* Firefox 4 */
+    -webkit-transition:width 2s, height 2s, -webkit-transform 2s; /* Safari and Chrome */
+    -o-transition:width 2s, height 2s, -o-transform 2s; /* Opera */
+    background: -webkit-linear-gradient(120deg, #174252, #59c8e4); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(120deg, #174252, #59c8e4); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(120deg, #174252, #59c8e4); /* Firefox 3.6 - 15 */
+    background: linear-gradient(120deg, #0f2131, #ced3d8); /* 标准的语法 */    
   }
   .first{
-    background-color: #d44141;
+   /* background-color: #d44141;*/
+   /* background: -webkit-radial-gradient(#174252, #105364, #59c8e4);  Safari 5.1 - 6.0 */
+   /* background: -o-radial-gradient(#174252, #105364, #59c8e4); /* Opera 11.6 - 12.0 */
+   /* background: -moz-radial-gradient(#174252, #105364, #59c8e4); /* Firefox 3.6 - 15 */
+   /* background: radial-gradient(#174252, #105364, #59c8e4); /* 标准的语法（必须放在最后） */
+
   }
   .second{
-    background-color: #ea781c;
+
     left: 83px;
     top: 146px;
   }
@@ -77,16 +89,17 @@ transition:width 2s, height 2s;
     top: 521px;
   }
   .test a{
-    font-family: 华文行楷;
+    font-family: Papyrus;
     position: absolute;
     top: 42%;
-    left: 37%;
+    left: 30%;
     text-decoration:none;
-    color: #4e3535;
+    color: #000000;
+    opacity: 0.6;
   }
  
   div img{
-1    max-width:170px;
+    max-width:170px;
     top: 20px;
     overflow:hidden;
   }
@@ -101,6 +114,59 @@ transition:width 2s, height 2s;
     text-align: left;
     font-size: 17px;
   }
+  hr{
+    color: white;
+    width: 100%;
+  }
+  .hr1{
+    width: 200px;
+    position: absolute;
+    left: 231px;
+    top: 212px;
+  }
+  .hr2{
+    width: 300px;
+    position: absolute;
+    left: 231px;
+    top: 362px;
+  }
+  .hr3{
+    width: 400px;
+    position: absolute;
+    left: 231px;
+    top: 512px;
+  }
+  .ball1{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    position: absolute;
+    left: 365px;  
+    top:37px;
+    -webkit-animation: bubble-anim 2s ease-out infinite,myfirst 5s linear infinite alternate;
+    animation: bubble-anim 2s ease-out infinite,myfirst 5s linear infinite alternate;
+  }
+  .ball2{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    position: absolute;
+    left: 1033px;  
+    top:187px;
+    -webkit-animation: bubble-anim 2s ease-out infinite,mysecond 5s linear infinite alternate;
+    animation: bubble-anim 2s ease-out infinite,mysecond 5s linear infinite alternate;
+  }
+  .ball3{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    position: absolute;
+    left: 560px;  
+    top:337px;
+    -webkit-animation: bubble-anim 2s ease-out infinite,mythird 5s linear infinite alternate;
+    animation: bubble-anim 2s ease-out infinite,mythird 5s linear infinite alternate;
+  }
+
 
 
 
@@ -108,32 +174,13 @@ transition:width 2s, height 2s;
   </style>
   <script type="text/javascript"></script>
   <body class="body">
-    <section class="main-image">
-      <img src="timg.jpg">  
-      <div class="libai">
-    <p>君不见，黄河之水天上来，奔流到海不复回。</p>
-　　<p>君不见，高堂明镜悲白发，朝如青丝暮成雪！</p>
-　　<p>人生得意须尽欢，莫使金樽空对月。</p>
-　　<p>天生我材必有用，千金散尽还复来。</p>
-　　<p>烹羊宰牛且为乐，会须一饮三百杯。</p>
-　　<p>岑夫子，丹丘生，将进酒，杯莫停。</p>
-　　<p>与君歌一曲，请君为我倾耳听。</p>
-　　<p>钟鼓馔玉不足贵，但愿长醉不复醒。</p>
-　　<p>古来圣贤皆寂寞，惟有饮者留其名。</p>
-　　<p>陈王昔时宴平乐，斗酒十千恣欢谑。</p>
-　　<p>主人何为言少钱，径须沽取对君酌。</p>
-　　<p>五花马、千金裘，呼儿将出换美酒，与尔同销万古愁！</p>
-  </div>   
-    </section>
-
-    
     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;鱼鱼鱼的博客：</p>
 
 <div class="mian-context">
 
   <div class="test first">
     <!--<img src="Koalass.jpg">-->
-     <a href="page/java1.html" class="first">JAVA</a>
+     <a href="page/java.html" class="first">JAVA</a>
   </div>
   <div class="test second">
      <a href="page/js.html" class="second">JS</a>
@@ -145,7 +192,7 @@ transition:width 2s, height 2s;
      <a href="page/essay.html">Essay</a>
   </div>
   <div class="test fifth">
-     <a href="page/mongodb1.html">Sql</a>
+     <a href="page/other.html">...</a>
   </div>
   <div class="test sixth">
      <a href="">Resume</a>
@@ -155,6 +202,19 @@ transition:width 2s, height 2s;
   </div>
 
 </div>
+<hr class="hr1">
+<hr class="hr2">
+<hr class="hr3">
+<!-- <div class="ball1"></div> -->
+<!-- <div class="ball2"></div> -->
+<!-- <div class="ball3"></div> -->
+<section class="stage">
+      <figure class="ball bubble ball1"></figure>
+
+      <figure class="ball bubble ball2"></figure>
+
+      <figure class="ball bubble ball3"></figure>
+</section>
 
       <footer class="main-footer">
 
