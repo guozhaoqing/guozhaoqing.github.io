@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./blogcommon.css">
+    <link rel="stylesheet" type="text/css" href="./mycss.css">
+  </head>
+  <style type="text/css">
+    body{
+      margin: 0px;  
+      background-color: #d8d8d3;
+    }
+    .head{
+      min-height:300px;
+      height: 30%;
+      width: 100%;
+      background-color: #299982;
+    }
+    .headimg{
+      min-height:300px;
+      height: 30%;
+      width: 100%;
+      background:url(aaaa.jpg) repeat center center scroll;  
+      opacity: 0.3;  
+    }
+    .header{
+      position: absolute;
+      background:url(aaaa.jpg) repeat center center scroll;  
+      width:180px;
+      height:180px;
+      border-radius:180px;
+      left: 50%;
+      margin-left: -90px;
+      top: 60px;
+    }
+    .tex{
+      width: 442px;
+      top: 260px;
+      color: white;
+      font-family: 宋体;
+      font-size: 24px;
+      background: url();
+      margin-left: -221px; 
+    }
+    .line{
+      height: 29px;
+      width: 100%;
+      background-color: #211f1f;
+    }
+    .body{
+      width: 80%;
+      min-height:9529px;
+      text-align: center;
+    }
+    .left{
+      background-color: white;
+      position: absolute;
+      margin-top: 12px;
+      left: 6%;
+      min-height:9500px;
+      height: 70%;
+      width: 15%;
+      border: 1px white solid; 
+    }
+    .myheader{
+      position: absolute;
+      background:url(logo.jpg) repeat center center scroll;  
+      width:100px;
+      height:100px;
+      border-radius:100px;
+      left: 50%;
+      margin-left: -50px;
+      top: 60px;
+    }
+    .info{
+      position: absolute;
+      top: 200px;
+      height: 200px;
+      width: 100%;
+      background-color: #299982;
+      color: white;
+      font-family: 宋体;
+      font-size: 18px;
+    }
+    .atag{
+      position: absolute;
+      top: 400px;
+      width: 100%;
+      text-align: center;
+     
+    }
+    .atag a{
+       color: #299982;
+    }
+    .right{
+      background-color: white;
+      position: absolute;
+      margin-top: 12px;  
+      left: 23%;
+      min-height:9500px;
+      height: 70%;
+      width: 71%;
+    }
+    .maintext{
+      width: 80%;
+      height: 100%;
+      position: absolute;
+      left: 10%;
+      top: 10%;
+      text-align: left;
+    }
+    .foot{
+      min-height:100px;
+      width: 100%;
+      background-color: #727475;
+    }
+    p a{
+      font-size: 11px;
+    }
+    pre table td{
+      font-size: 16px;
+      border: 1px solid green;
+    }
+  </style>
+  <script type="text/javascript"></script>
+  <body>
+    <div class="head">
+        <!-- <img class="headimg" src="aaaa.jpg"> -->
+        <div class="headimg">
+        </div>
+    </div>
+    <div class="header"></div>
+    <div class="header tex">薛定谔的猫，哲学家的狗，单身的小朋友</div>
+    <div class="line"></div>
+    <div class="body">
+      <div class="left">
+        <div class="myheader"></div>
+          <div class="info"> 
+          <p>&nbsp;</p>
+            <p>&nbsp;&nbsp;世界上有10种人，</p>
+            <p>&nbsp;一种懂二进制，</p>
+            <p>&nbsp;一种不懂二进制 </p>
+          </div>
+          <div class="atag">
+            <p><a href="../index.html">返回</a></p>
+            <p><a href="java1.html">自定义注解入门(2017年4月)</a></p>
+            <p><a href="java2.html">java数组(2017年4月)</a></p>
+            <p><a href="java3.html">java集合详解1(2017年4月)</a></p>
+            <p><a href="java4.html">java集合详解2(2017年4月)</a></p>
+            <p><a href="#">java集合总结(2017年5月)</a></p>
+
+          </div>
+      </div>
+      <div class="right">
+          <div class="maintext" style="top:100px;">
+<pre>
+&nbsp;&nbsp;前面对集合和Map有了基本了解后，这里对集合和Map进行相关的总结和补充。也给后面留些坑！
+<span style="color: #069;">集合总结：</span>
+<span style="color: #9393d4;">  1、ArrayList：a)数组结构&nbsp;&nbsp;b)线程不安全&nbsp;&nbsp;c)查找速度快&nbsp;&nbsp;d)增加、删除速度慢
+  2、LinkedList：a)链表结构&nbsp;&nbsp;b)线程安全&nbsp;&nbsp;c)查找速度慢&nbsp;&nbsp;d)增加、删除速度快
+  3、Vector：a)数组结构&nbsp;&nbsp;b)线程安全&nbsp;&nbsp;c)使用很少，基本为ArrayList取代
+  4、Stack：a)桟，继承自Vector</span>
+使用场景：
+  1、对于需要快速插入、删除元素，则需使用LinkedList。
+  2、对于需要快速访问元素，则需使用ArrayList。
+  3、对于“单线程环境”或者“多线程环境，但是List仅被一个线程操作”，需要考虑使用非同步的类，如果是“多线程环境，切List可能同时被多个线程操作”，考虑使用同步的类（如Vector）。
+<div style="border:1px solid #3cdc39">  前面没有对Stack做介绍，这边补充一下：
+<span style="color: #9393d4;">Stack 桟</span>
+&nbsp;&nbsp;后进先出（LIFO）的对象堆栈。它通过五个操作对类 Vector 进行了扩展 ，允许将向量视为堆栈。
+<table>
+  <tr>
+    <td>操作</td>
+    <td>说明</td>
+  </tr>
+  <tr>
+    <td>empty()</td>
+    <td>检查堆栈是否为空。</td>
+  </tr>
+  <tr>
+    <td>peek()</td>
+    <td>查看堆栈顶部对象，但不移除对象。</td>
+  </tr>
+  <tr>
+    <td>pop()</td>
+    <td>移除堆栈顶部对象，并返回该对象的值。</td>
+  </tr>
+  <tr>
+    <td>push(E e)</td>
+    <td>把对象压入堆栈顶部。</td>
+  </tr>
+  <tr>
+    <td>search(Object o)</td>
+    <td>返回对象在堆栈中的位置。(从栈顶开始数，从1开始)</td>
+  </tr>
+</table>
+Stack类直接继承自Vector，内部并没有复杂的方法，主要是上面表格列出的5种方法和继承自Vector的方法。模仿的桟的结构，实现了后进先出（LIFO）。
+</div>
+<span style="color: #069;">Map总结：</span>
+<span style="color: #9393d4;">1、TreeMap：</span>有序散列表，实现SortedMap 接口，底层通过红黑树实现。(一般应用于单线程中)
+<span style="color: #9393d4;">2、HashMap：</span>是基于“拉链法”实现的散列表。底层采用“数组+链表”实现。(一般应用于单线程中)
+<span style="color: #9393d4;">3、HashTable：</span>基于“拉链法”实现的散列表。(一般应用于多线程中)
+
+补充：
+<span style="color: red;">1、JDK1.8对HashMap进行了修改，在链表长度过长时，添加了红黑树，保证了效率的提高。
+2、对于多线程、并发等情况下，通常使用java.util.concurrent包下的类和接口，这部分内容在并发部分一起研究。
+</span>
+</pre>
+
+
+          </div>
+      </div>
+    </div>
+    <div class="line"></div>
+    <div class="foot"></div>
+  </body>
+</html>
