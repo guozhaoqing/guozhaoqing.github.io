@@ -7,12 +7,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-
+	   <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <script src="js/modernizr.custom.js"></script>
   </head>
+  <style type="text/css">
+  .left{
+    width: 30px;
+    height: 200px;
+    background: url(muzhi.jpg);
+    box-shadow: 10px 10px 5px #888888;
+  }
+  .down{
+    width: 500px;
+    height: 30px;
+    background: url(muzhi.jpg);
+    box-shadow: 10px 10px 5px #888888;
+  }
+  .book{
+    width: 30px;
+    height: 160px;
+    transform:rotate(-9deg);
+    -ms-transform:rotate(-9deg);   /* IE 9 */
+    -moz-transform:rotate(-9deg);  /* Firefox */
+    -webkit-transform:rotate(-9deg); /* Safari 和 Chrome */
+    -o-transform:rotate(-9deg);  /* Opera */
+    position: absolute;
+  }
+  .bname{
+    margin: 5px;
+    display: block;
+    width: 14px;
+    font-size: 14px;
+  }
+  .book1{
+    background: linear-gradient(#1ed075, #136f6f);  /* 标准的语法 */
+    left: 50px;
+    top: 47px;
+  }
+  .book2{
+    background: linear-gradient(#e40089, #060606);
+    left: 80px;
+    top: 47px;
+  }
+  .book3{
+    background: linear-gradient(#1ed075, #136f6f);
+    left: 110px;
+    top: 47px;
+  }
+  .book4{
+    background: linear-gradient(#e40089, #060606);
+    left: 140px;
+    top: 47px;
+  }
+  .book5{
+    background: linear-gradient(#1ed075, #136f6f);
+    left: 170px;
+    top: 47px;
+  }
+  .book6{
+    background: linear-gradient(#e40089, #060606);
+    left: 200px;
+    top: 47px;
+  }
+  </style>
+  <script type="text/javascript"></script>
+  <body >
+    <div class="md-modal md-effect-18" id="modal-18">
+      <div class="md-content">
+          <a href="">JAVA数组</a></br>
+          <a href="">JAVA集合详解1</a></br>
+          <a href="">JAVA集合详解2</a></br>
+          <a href="">JAVA集合总结</a></br>
+          <button class="md-close">Close me!</button>
+      </div>
+    </div>
 
-  <body class="body">
- test
+    <div class="container" >
+  <div class="left"></div>
+  <div class="down"></div>
+  <a href="#" class="book book1 md-trigger md-setperspective" data-modal="modal-18">
+    <div class="bname"><div>T</div><div>O</div><div>M</div><div>C</div><div>A</div>T学习</div>
+  </a>
+  <a href="#" class="book book2 md-trigger md-setperspective" data-modal="modal-18">
+    <div class="bname">集合学习</div>
+  </a>
+  <a href="#" class="book book3">
+    <div class="bname"></div>
+  </a>
+  <a href="#" class="book book4">
+    <div class="bname"></div>
+  </a>
+  <a href="#" class="book book5">
+    <div class="bname"></div>
+  </a>
+  <a href="#" class="book book6">
+    <div class="bname"></div>
+  </a>
 
-  
+
+</div>
+  <div class="md-overlay"></div><!-- the overlay element -->
+
+
+
+      <script src="js/classie.js"></script>
+    <script src="js/modalEffects.js"></script>
+
+    <!-- for the blur effect -->
+    <!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+    <script>
+      // this is important for IEs
+      var polyfilter_scriptpath = '/js/';
+    </script>
+    <script src="js/cssParser.js"></script>
+    <script src="js/css-filters-polyfill.js"></script>
   </body>
 </html>
+
