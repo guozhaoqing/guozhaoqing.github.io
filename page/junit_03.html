@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./blogcommon.css">
+    <link rel="stylesheet" type="text/css" href="./mycss.css">
+  </head>
+  <style type="text/css">
+    body{
+      margin: 0px;  
+      background-color: #d8d8d3;
+    }
+    .head{
+      min-height:300px;
+      height: 30%;
+      width: 100%;
+      background-color: #299982;
+    }
+    .headimg{
+      min-height:300px;
+      height: 30%;
+      width: 100%;
+      background:url(aaaa.jpg) repeat center center scroll;  
+      opacity: 0.3;  
+    }
+    .header{
+      position: absolute;
+      background:url(aaaa.jpg) repeat center center scroll;  
+      width:180px;
+      height:180px;
+      border-radius:180px;
+      left: 50%;
+      margin-left: -90px;
+      top: 60px;
+    }
+    .tex{
+      width: 442px;
+      top: 260px;
+      color: white;
+      font-family: 宋体;
+      font-size: 24px;
+      background: url();
+      margin-left: -221px; 
+    }
+    .line{
+      height: 29px;
+      width: 100%;
+      background-color: #211f1f;
+    }
+    .body{
+      width: 80%;
+      min-height:3129px;
+      text-align: center;
+    }
+    .left{
+      background-color: white;
+      position: absolute;
+      margin-top: 12px;
+      left: 6%;
+      min-height:3100px;
+      height: 70%;
+      width: 15%;
+      border: 1px white solid; 
+    }
+    .myheader{
+      position: absolute;
+      background:url(logo.jpg) repeat center center scroll;  
+      width:100px;
+      height:100px;
+      border-radius:100px;
+      left: 50%;
+      margin-left: -50px;
+      top: 60px;
+    }
+    .info{
+      position: absolute;
+      top: 200px;
+      height: 200px;
+      width: 100%;
+      background-color: #299982;
+      color: white;
+      font-family: 宋体;
+      font-size: 18px;
+    }
+    .atag{
+      position: absolute;
+      top: 400px;
+      width: 100%;
+      text-align: center;
+     
+    }
+    .atag a{
+       color: #299982;
+    }
+    .right{
+      background-color: white;
+      position: absolute;
+      margin-top: 12px;  
+      left: 23%;
+      min-height:3100px;
+      height: 70%;
+      width: 71%;
+    }
+    .maintext{
+      width: 80%;
+      height: 100%;
+      position: absolute;
+      left: 10%;
+      top: 10%;
+      text-align: left;
+    }
+    .foot{
+      min-height:100px;
+      width: 100%;
+      background-color: #727475;
+    }
+    p a{
+      font-size: 11px;
+    }
+  </style>
+  <script type="text/javascript"></script>
+  <body>
+    <div class="head">
+        <!-- <img class="headimg" src="aaaa.jpg"> -->
+        <div class="headimg">
+        </div>
+    </div>
+    <div class="header"></div>
+    <div class="header tex">薛定谔的猫，哲学家的狗，单身的小朋友</div>
+    <div class="line"></div>
+    <div class="body">
+      <div class="left">
+        <div class="myheader"></div>
+          <div class="info"> 
+          <p>&nbsp;</p>
+            <p>&nbsp;&nbsp;世界上有10种人，</p>
+            <p>&nbsp;一种懂二进制，</p>
+            <p>&nbsp;一种不懂二进制 </p>
+          </div>
+          <div class="atag">
+            <p><a href="../java.html">返回</a></p>
+          </div>
+      </div>
+      <div class="right">
+          <div class="maintext" style="top:100px;">
+<pre>
+&nbsp;&nbsp;在日常开发项目中，我们最常见的框架就是spring框架，搭配spring框架的spring-test和junit来实现单元测试在日常开发中还是比较常见的。这里简单介绍一下如何实现。
+&nbsp;&nbsp;首先是maven配置：
+<div class="cnblogs_code"><pre style="color:#008;">&lt;properties&gt;
+    &lt;org.springframework.version&gt;4.2.4.RELEASE&lt;/org.springframework.version&gt;
+    &lt;java.version&gt;1.7&lt;/java.version&gt;
+    &lt;maven.compiler.version&gt;3.1&lt;/maven.compiler.version&gt;
+    &lt;junit.version&gt;4.12&lt;/junit.version&gt;
+    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+&lt;/properties&gt;
+
+    &lt;dependencies&gt;
+&lt;!-- Spring Test --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+            &lt;version&gt;${org.springframework.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.12&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;</pre></div>
+&nbsp;&nbsp;在测试类中的注解配置：
+<div class="cnblogs_code"><pre>/**
+ * Spring4 + Junit4集成
+ */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations="classpath:spring-annotation.xml")
+public class HelloServiceTest {
+    @Autowired
+    private HelloService helloService;
+    @Test
+    public void testHello(){
+        helloService.sayHello("ricky");
+    }
+}</pre></div>用到如下注解：
+<span style="color: #cd2df3;">@RunWith：</span>用于指定junit运行环境，是junit提供给其他框架测试环境接口扩展，为了便于使用spring的依赖注入，spring提供了org.springframework.test.context.junit4.SpringJUnit4ClassRunner作为Junit测试环境
+<span style="color: #cd2df3;">@ContextConfiguration:</span>用于指定spring配置环境
+<span style="color: #cd2df3;">@TransactionConfiguration:</span>用于配置事务
+<span style="color: #cd2df3;">@Transactional:</span>表示所有类下所有方法都使用事务
+
+在内部成员属性上可以加@resource和@autowire用来装配依赖对象，两者区别在于前者按名称装配，后者按类型，但都可以指定按照name装配。在实际使用中，常用一个父类套件来加载runwith、contextConfiguration，并在类中装配依赖对象，具体的业务测试类继承此类，避免重复的加载配置文件以及重复代码书写。
+
+在基于spring开发的项目中，使用junit+spring-test的好处有以下几点：
+1、避免多次Spring容器初始化问题 
+2、避免使用硬编码方式手工获取Bean 
+3、避免数据库现场遭受破坏（测试检测完自动回滚数据，重复测试也不会影响）
+
+
+这次工作中的单元测试使用基本比较简单，差不多都写在这里了。不过吐槽一下项目的测试平台，对单元测试覆盖率的要求是60%真恶心，实际项目中的业务代码在代码总量中占比并不多，也就是说需要对工具类，辅助类进行大量无用功的单元测试，以提高覆盖率。为应付而测试，坑爹！
+后续如果有关于单元测试的内容，会补充在这里-------------------待续
+
+</pre>
+
+
+
+
+          </div>
+      </div>
+    </div>
+    <div class="line"></div>
+    <div class="foot"></div>
+  </body>
+</html>
