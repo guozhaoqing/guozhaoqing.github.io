@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./blogcommon.css">
+    <link rel="stylesheet" type="text/css" href="./mycss.css">
+  </head>
+  <style type="text/css">
+    body{
+      margin: 0px;  
+      background-color: #d8d8d3;
+    }
+    .head{
+      min-height:300px;
+      height: 30%;
+      width: 100%;
+      background-color: #299982;
+    }
+    .headimg{
+      min-height:300px;
+      height: 30%;
+      width: 100%;
+      background:url(aaaa.jpg) repeat center center scroll;  
+      opacity: 0.3;  
+    }
+    .header{
+      position: absolute;
+      background:url(aaaa.jpg) repeat center center scroll;  
+      width:180px;
+      height:180px;
+      border-radius:180px;
+      left: 50%;
+      margin-left: -90px;
+      top: 60px;
+    }
+    .tex{
+      width: 442px;
+      top: 260px;
+      color: white;
+      font-family: 宋体;
+      font-size: 24px;
+      background: url();
+      margin-left: -221px; 
+    }
+    .line{
+      height: 29px;
+      width: 100%;
+      background-color: #211f1f;
+    }
+    .body{
+      width: 80%;
+      min-height:3129px;
+      text-align: center;
+    }
+    .left{
+      background-color: white;
+      position: absolute;
+      margin-top: 12px;
+      left: 6%;
+      min-height:3100px;
+      height: 70%;
+      width: 15%;
+      border: 1px white solid; 
+    }
+    .myheader{
+      position: absolute;
+      background:url(logo.jpg) repeat center center scroll;  
+      width:100px;
+      height:100px;
+      border-radius:100px;
+      left: 50%;
+      margin-left: -50px;
+      top: 60px;
+    }
+    .info{
+      position: absolute;
+      top: 200px;
+      height: 200px;
+      width: 100%;
+      background-color: #299982;
+      color: white;
+      font-family: 宋体;
+      font-size: 18px;
+    }
+    .atag{
+      position: absolute;
+      top: 400px;
+      width: 100%;
+      text-align: center;
+     
+    }
+    .atag a{
+       color: #299982;
+    }
+    .right{
+      background-color: white;
+      position: absolute;
+      margin-top: 12px;  
+      left: 23%;
+      min-height:3100px;
+      height: 70%;
+      width: 71%;
+    }
+    .maintext{
+      width: 80%;
+      height: 100%;
+      position: absolute;
+      left: 10%;
+      top: 10%;
+      text-align: left;
+    }
+    .foot{
+      min-height:100px;
+      width: 100%;
+      background-color: #727475;
+    }
+    p a{
+      font-size: 11px;
+    }
+  </style>
+  <script type="text/javascript"></script>
+  <body>
+    <div class="head">
+        <!-- <img class="headimg" src="aaaa.jpg"> -->
+        <div class="headimg">
+        </div>
+    </div>
+    <div class="header"></div>
+    <div class="header tex">薛定谔的猫，哲学家的狗，单身的小朋友</div>
+    <div class="line"></div>
+    <div class="body">
+      <div class="left">
+        <div class="myheader"></div>
+          <div class="info"> 
+          <p>&nbsp;</p>
+            <p>&nbsp;&nbsp;世界上有10种人，</p>
+            <p>&nbsp;一种懂二进制，</p>
+            <p>&nbsp;一种不懂二进制 </p>
+          </div>
+          <div class="atag">
+            <p><a href="../java.html">返回</a></p>
+          </div>
+      </div>
+      <div class="right">
+          <div class="maintext" style="top:100px;">
+<pre>
+&nbsp;&nbsp;前一篇的单元测试内容里面，简单讲了构建一个最简单的单元测试的过程以及相关的注解和断言。但是在实际开发过程中，我们需要做单元测试的方法并不都是那么简单，除了方法本身的复杂之外，环境的复杂也是很麻烦的，需要测试的方法很可能依赖相当多的外部数据、方法等等，那么这种情况下我们如何解决呢？
+&nbsp;&nbsp;junit在单元测试方面已经做的非常好了，同时它也能很好的搭配其他的第三方插件，我们这里使用junit+Mockito来完成较复杂方法的单元测试。
+&nbsp;&nbsp;Mockito是一个工具包，其作用是生成模拟对象，也就是生成一个“假对象”；
+一：Mockito使用实例
+<div class="cnblogs_code"><pre>List mock = mock( List.class );  
+when( mock.get(0) ).thenReturn( 1 );  
+assertEquals( "预期返回1", 1, mock.get( 0 ) );<span style="color: #008000;">// mock.get(0) 返回 1</span>  </pre></div>这里mock 是模拟 List 的对象，拥有 List 的所有方法和属性。when(xxxx).thenReturn(yyyy); 是指定当执行了这个方法的时候，返回 thenReturn 的值，相当于是对模拟对象的配置过程，为某些条件给定一个预期的返回值。相信通过这个简单的例子你可以明白所谓 Mock 便是这么一回事。
+这里mock对象可以模拟任何类，例子中给的是List接口对象，实际上也可以给Object对象。这里比较重要的是 when(…).thenReturn(…) 的输入和输出，也叫做stub(存根)。一旦这个方法被 stub 了，就会一直返回这个 stub 的值。
+这里有两点需要注意：
+<span style="color: #9393d4;">1、对于 static 和 final 方法， Mockito 无法对其 when(…).thenReturn(…) 操作。</span>
+<span style="color: #9393d4;">2、当我们连续两次为同一个方法使用 stub 的时候，他只会只用最新的一次。</span>
+
+mock 对象会覆盖整个被 mock 的对象，因此没有 stub 的方法只能返回默认值。又因为，我们 mock 一个接口的时候，很多成员方法只是一个签名，并没有实现，这就要我们手动写出这些实现方法啦。典型地，我们模拟一个 request 请求对象，你被测试的代码中使用了 HttpSerevletRequest 什么方法，就要写出相应的实现方法！
+<div class="cnblogs_code"><pre>HttpServletRequest request = mock(HttpServletRequest.class);  
+when(request.getParameter("foo")).thenReturn("boo"); </pre></div>
+这里Stub之后，我们执行 request.getParamter("foo") 就会返回 boo，如果不这样设定，Mockito 就会返回默认的 null，也不会报错说这个方法找不到。mock 实例默认的会给所有的方法添加基本实现：返回 null 或空集合，或者 0 等基本类型的值。这取决于方法返回类型，如 int 会返回 0，布尔值返回 false。对于其他 type 会返回 null。
+同时，支持迭代风格的返回值设定，例如：
+<div class="cnblogs_code"><pre><span style="color: #008000;">// 第一种方式  </span> 
+when(i.next()).thenReturn("Hello").thenReturn("World");  
+<span style="color: #008000;">// 第二种方式  </span>
+when(i.next()).thenReturn("Hello", "World");  
+<span style="color: #008000;">// 第三种方式，都是等价的  </span>
+when(i.next()).thenReturn("Hello");  
+when(i.next()).thenReturn("World"); </pre></div>第一次调用 i.next() 将返回 ”Hello”，第二次的调用会返回 ”World”。
+
+前面举的例子都是有返回值的，如果返回值是void的情况写法就不一样了：
+<div class="cnblogs_code"><pre>doNothing().when(obj).notify();  
+<span style="color: #008000;">// 或直接  </span>
+when(obj).notify();  </pre></div>抛出异常的情况：
+<div class="cnblogs_code"><pre>when(i.next()).thenThrow(new RuntimeException());  
+doThrow(new RuntimeException()).when(i).remove(); <span style="color: #008000;">// void 方法的  </span>
+<span style="color: #008000;">// 迭代风格   </span>
+doNothing().doThrow(new RuntimeException()).when(i).remove(); <span style="color: #008000;">// 第一次调用 remove 方法什么都不做，第二次调用抛出 RuntimeException 异常。</span></pre></div>  
+
+这样使用mock对象和junit结合起来使用，就可以单元测试较为复杂的方法，并为方法所需的值进行自定义赋值。而mock对象的使用远远不止上面介绍的部分，这边由于没有深入的使用，也就不在介绍了，可以看其他的博客如<a href="http://blog.csdn.net/zhangxin09/article/details/42422643">这里</a>
+
+下面是一个结合mock的单元测试的例子：
+<div class="cnblogs_code"><pre>@Test    
+public void save() {    
+    User user = new User();    
+    user.setLoginName("admin");    
+    <span style="color: #008000;">// 第一次调用findUserByLoginName返回user 第二次调用返回null  </span>  
+    when(mockUserDao.findUserByLoginName(anyString())).thenReturn(user).thenReturn(null);    
+    try {    
+        <span style="color: #008000;">// 测试如果重名会抛出异常    </span>
+        userService.save(user);    
+        <span style="color: #008000;">// 如果没有抛出异常测试不通过    </span>
+        failBecauseExceptionWasNotThrown(RuntimeException.class);    
+    } catch (ServiceException se) {    
+    }    
+    verify(mockUserDao).findUserByLoginName("admin");    
+    
+    <span style="color: #008000;">// userService.save(user);    </span>
+    user.setPassword("123456");    
+    String userId = userService.save(user);    
+    <span style="color: #008000;">// 断言返回结果    </span>
+    assertThat(userId).isNotEmpty().hasSize(32);    
+    
+    verify(mockUserDao, times(2)).findUserByLoginName(anyString());    
+    verify(mockUserDao).save(any(User.class));    
+}    
+    
+@Test    
+public void save2() {    
+    User user = new User();    
+    user.setLoginName("admin");    
+    user.setPassword("123456");    
+    userService.save(user);    
+    
+    <span style="color: #008000;">// 通过ArgumentCaptor(参数捕获器) 对传入参数进行验证    </span>
+    ArgumentCaptor&lt;User&gt; argument = ArgumentCaptor.forClass(User.class);    
+    verify(mockUserDao).save(argument.capture());    
+    assertThat("admin").isEqualTo(argument.getValue().getLoginName());    
+    
+    <span style="color: #008000;">// stub 调用save方法时抛出异常    </span>
+    doThrow(new ServiceException("测试抛出异常")).when(mockUserDao).save(any(User.class));    
+    try {    
+        userService.save(user);    
+        failBecauseExceptionWasNotThrown(RuntimeException.class);    
+    } catch (ServiceException se) {    
+    }    
+}   </pre></div>
+
+
+
+</pre>
+
+
+
+
+          </div>
+      </div>
+    </div>
+    <div class="line"></div>
+    <div class="foot"></div>
+  </body>
+</html>
